@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Vulnerability Dashboard{% endblock %}</title>
+    
+    {% load static %}
+    
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        {% include 'includes/navbar.html' %}
+        {% include 'includes/sidebar.html' %}
+        
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">{% block page_title %}Dashboard{% endblock %}</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                {% block breadcrumb %}
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                                {% endblock %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="content">
+                <div class="container-fluid">
+                    {% block content %}{% endblock %}
+                </div>
+            </section>
+        </div>
+        
+        {% include 'includes/footer.html' %}
+    </div>
+    
+    <!-- AdminLTE JS -->
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/adminlte.min.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
